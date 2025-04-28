@@ -1,0 +1,11 @@
+[nodes]
+node0 ansible_host="{{ node0_host }}" ansible_user="{{ user }}" node_name="VzE3Jou9SI0uqI6ikwbUxSoptc6ULrdpPP/qksFwmQw=" node_secret="8S2EISc0r/Vd5MIKGPfgRT68Sz1LPUXBX6uvr1UPdVNXMTcmi71IjS6ojqKTBtTFKim1zpQut2k8/+qSwXCZDA=="
+node1 ansible_host="{{ node1_host }}" ansible_user="{{ user }}" node_name="hrXXboUzz4VyMcWiG5UBTsmRFfW3G/bh06HJW41BOZc=" node_secret="OspXOh/pkyeAvXREKwEHCD/sBkLdlkVWMYo9eYgCDOyGtdduhTPPhXIxxaIblQFOyZEV9bcb9uHToclbjUE5lw=="
+node2 ansible_host="{{ node2_host }}" ansible_user="{{ user }}" node_name="SFrLus5cHmySck6Afv+4DRH6KgumTbd0S3/k731YQjA=" node_secret="zRtN+xjdh5x1njURtIQlJdmROtSQHAVv8FJ8hT3yudZIWsu6zlwebJJyToB+/7gNEfoqC6ZNt3RLf+TvfVhCMA=="
+node3 ansible_host="{{ node3_host }}" ansible_user="{{ user }}" node_name="54+I6MeclGe1q1YsAcio00xFNr6wJCm12EHEzdMKEVA=" node_secret="lNcW5BfKc+1jLMwHYigqzL8DG/qwG3MEDq+PvDY/+8nnj4jox5yUZ7WrViwByKjTTEU2vrAkKbXYQcTN0woRUA=="
+
+[all:vars]
+ansible_user=root
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+benchmark_running_time=10
