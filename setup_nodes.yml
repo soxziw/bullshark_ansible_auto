@@ -1,139 +1,139 @@
 ---
 - hosts: nodes
   tasks:
-    # - name: Create TumTestbedConfiguration directory
-    #   file:
-    #     path: ~/TumTestbedConfiguration
-    #     state: directory
-    #     mode: '0755'
+    - name: Create TumTestbedConfiguration directory
+      file:
+        path: ~/TumTestbedConfiguration
+        state: directory
+        mode: '0755'
 
-    # - name: Copy committee.json
-    #   copy:
-    #     content: |
-    #       {
-    #         "authorities": {
-    #           "VzE3Jou9SI0uqI6ikwbUxSoptc6ULrdpPP/qksFwmQw=": {
-    #             "primary": {
-    #               "primary_to_primary": "{{ hostvars['node0']['ansible_host'] }}:4000",
-    #               "worker_to_primary": "{{ hostvars['node0']['ansible_host'] }}:4001"
-    #             },
-    #             "stake": 1,
-    #             "workers": {
-    #               "0": {
-    #                 "primary_to_worker": "{{ hostvars['node0']['ansible_host'] }}:4002",
-    #                 "transactions": "{{ hostvars['node0']['ansible_host'] }}:4003",
-    #                 "worker_to_worker": "{{ hostvars['node0']['ansible_host'] }}:4004"
-    #               }
-    #             }
-    #           },
-    #           "hrXXboUzz4VyMcWiG5UBTsmRFfW3G/bh06HJW41BOZc=": {
-    #             "primary": {
-    #               "primary_to_primary": "{{ hostvars['node1']['ansible_host'] }}:4000",
-    #               "worker_to_primary": "{{ hostvars['node1']['ansible_host'] }}:4001"
-    #             },
-    #             "stake": 1,
-    #             "workers": {
-    #               "0": {
-    #                 "primary_to_worker": "{{ hostvars['node1']['ansible_host'] }}:4002",
-    #                 "transactions": "{{ hostvars['node1']['ansible_host'] }}:4003",
-    #                 "worker_to_worker": "{{ hostvars['node1']['ansible_host'] }}:4004"
-    #               }
-    #             }
-    #           },
-    #           "SFrLus5cHmySck6Afv+4DRH6KgumTbd0S3/k731YQjA=": {
-    #             "primary": {
-    #               "primary_to_primary": "{{ hostvars['node2']['ansible_host'] }}:4000",
-    #               "worker_to_primary": "{{ hostvars['node2']['ansible_host'] }}:4001"
-    #             },
-    #             "stake": 1,
-    #             "workers": {
-    #               "0": {
-    #                 "primary_to_worker": "{{ hostvars['node2']['ansible_host'] }}:4002",
-    #                 "transactions": "{{ hostvars['node2']['ansible_host'] }}:4003",
-    #                 "worker_to_worker": "{{ hostvars['node2']['ansible_host'] }}:4004"
-    #               }
-    #             }
-    #           },
-    #           "54+I6MeclGe1q1YsAcio00xFNr6wJCm12EHEzdMKEVA=": {
-    #             "primary": {
-    #               "primary_to_primary": "{{ hostvars['node3']['ansible_host'] }}:4000",
-    #               "worker_to_primary": "{{ hostvars['node3']['ansible_host'] }}:4001"
-    #             },
-    #             "stake": 1,
-    #             "workers": {
-    #               "0": {
-    #                 "primary_to_worker": "{{ hostvars['node3']['ansible_host'] }}:4002",
-    #                 "transactions": "{{ hostvars['node3']['ansible_host'] }}:4003",
-    #                 "worker_to_worker": "{{ hostvars['node3']['ansible_host'] }}:4004"
-    #               }
-    #             }
-    #           }
-    #         }
-    #       }
-    #     dest: ~/TumTestbedConfiguration/committee.json
+    - name: Copy committee.json
+      copy:
+        content: |
+          {
+            "authorities": {
+              "VzE3Jou9SI0uqI6ikwbUxSoptc6ULrdpPP/qksFwmQw=": {
+                "primary": {
+                  "primary_to_primary": "{{ hostvars['node0']['ansible_host'] }}:4000",
+                  "worker_to_primary": "{{ hostvars['node0']['ansible_host'] }}:4001"
+                },
+                "stake": 1,
+                "workers": {
+                  "0": {
+                    "primary_to_worker": "{{ hostvars['node0']['ansible_host'] }}:4002",
+                    "transactions": "{{ hostvars['node0']['ansible_host'] }}:4003",
+                    "worker_to_worker": "{{ hostvars['node0']['ansible_host'] }}:4004"
+                  }
+                }
+              },
+              "hrXXboUzz4VyMcWiG5UBTsmRFfW3G/bh06HJW41BOZc=": {
+                "primary": {
+                  "primary_to_primary": "{{ hostvars['node1']['ansible_host'] }}:4000",
+                  "worker_to_primary": "{{ hostvars['node1']['ansible_host'] }}:4001"
+                },
+                "stake": 1,
+                "workers": {
+                  "0": {
+                    "primary_to_worker": "{{ hostvars['node1']['ansible_host'] }}:4002",
+                    "transactions": "{{ hostvars['node1']['ansible_host'] }}:4003",
+                    "worker_to_worker": "{{ hostvars['node1']['ansible_host'] }}:4004"
+                  }
+                }
+              },
+              "SFrLus5cHmySck6Afv+4DRH6KgumTbd0S3/k731YQjA=": {
+                "primary": {
+                  "primary_to_primary": "{{ hostvars['node2']['ansible_host'] }}:4000",
+                  "worker_to_primary": "{{ hostvars['node2']['ansible_host'] }}:4001"
+                },
+                "stake": 1,
+                "workers": {
+                  "0": {
+                    "primary_to_worker": "{{ hostvars['node2']['ansible_host'] }}:4002",
+                    "transactions": "{{ hostvars['node2']['ansible_host'] }}:4003",
+                    "worker_to_worker": "{{ hostvars['node2']['ansible_host'] }}:4004"
+                  }
+                }
+              },
+              "54+I6MeclGe1q1YsAcio00xFNr6wJCm12EHEzdMKEVA=": {
+                "primary": {
+                  "primary_to_primary": "{{ hostvars['node3']['ansible_host'] }}:4000",
+                  "worker_to_primary": "{{ hostvars['node3']['ansible_host'] }}:4001"
+                },
+                "stake": 1,
+                "workers": {
+                  "0": {
+                    "primary_to_worker": "{{ hostvars['node3']['ansible_host'] }}:4002",
+                    "transactions": "{{ hostvars['node3']['ansible_host'] }}:4003",
+                    "worker_to_worker": "{{ hostvars['node3']['ansible_host'] }}:4004"
+                  }
+                }
+              }
+            }
+          }
+        dest: ~/TumTestbedConfiguration/committee.json
 
-    # - name: Copy node configuration
-    #   copy:
-    #     content: |
-    #       {
-    #         "name": "{{ node_name }}",
-    #         "secret": "{{ node_secret }}"
-    #       }
-    #     dest: ~/TumTestbedConfiguration/node.json
+    - name: Copy node configuration
+      copy:
+        content: |
+          {
+            "name": "{{ node_name }}",
+            "secret": "{{ node_secret }}"
+          }
+        dest: ~/TumTestbedConfiguration/node.json
 
-    # - name: Copy parameters.json
-    #   copy:
-    #     content: |
-    #       {
-    #           "batch_size": 500000,
-    #           "gc_depth": 50,
-    #           "header_size": 50,
-    #           "max_batch_delay": 200,
-    #           "max_header_delay": 1000,
-    #           "sync_retry_delay": 10000,
-    #           "sync_retry_nodes": 3
-    #       }
-    #     dest: ~/TumTestbedConfiguration/parameters.json
+    - name: Copy parameters.json
+      copy:
+        content: |
+          {
+              "batch_size": 500000,
+              "gc_depth": 50,
+              "header_size": 50,
+              "max_batch_delay": 200,
+              "max_header_delay": 1000,
+              "sync_retry_delay": 10000,
+              "sync_retry_nodes": 3
+          }
+        dest: ~/TumTestbedConfiguration/parameters.json
 
-    # - name: Create setup script
-    #   copy:
-    #     content: |
-    #       #!/bin/bash
-    #       echo 'starting setup'
-    #       sudo apt-get --allow-releaseinfo-change update
-    #       sudo apt-get -y install git curl
-    #       sudo apt-get -y install build-essential
-    #       sudo apt-get -y install cmake
-    #       sudo apt-get -y install python3
-    #       echo 'installing rust'
-    #       curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    #       source $HOME/.cargo/env
-    #       rustup default stable
-    #       sudo apt-get install -y clang libclang-dev
-    #       sudo apt-get install -y python3-pip
-    #       sudo apt-get install -y libssl-dev libffi-dev python3-dev cargo
-    #       sudo apt-get install -y tmux
-    #       sudo apt-get install -y iproute2
-    #       echo 'source $HOME/.cargo/env' >> ~/.bashrc
-    #       echo "export LIBCLANG_PATH=/usr/lib/llvm-14/lib" >> ~/.bashrc
-    #       rm -rf narwhal
-    #       echo "cloning repo"
-    #       git clone https://github.com/soxziw/narwhal.git -b bullshark_ram
-    #       cd narwhal
-    #       pwd
-    #       git branch
-    #       cd benchmark
-    #       python3 --version
-    #       cat requirements.txt
-    #       pip3 install -r requirements.txt --verbose
-    #       echo 'finished setup'
-    #     dest: ~/setup.sh
-    #     mode: '0755'
+    - name: Create setup script
+      copy:
+        content: |
+          #!/bin/bash
+          echo 'starting setup'
+          sudo apt-get --allow-releaseinfo-change update
+          sudo apt-get -y install git curl
+          sudo apt-get -y install build-essential
+          sudo apt-get -y install cmake
+          sudo apt-get -y install python3
+          echo 'installing rust'
+          curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          source $HOME/.cargo/env
+          rustup default stable
+          sudo apt-get install -y clang libclang-dev
+          sudo apt-get install -y python3-pip
+          sudo apt-get install -y libssl-dev libffi-dev python3-dev cargo
+          sudo apt-get install -y tmux
+          sudo apt-get install -y iproute2
+          echo 'source $HOME/.cargo/env' >> ~/.bashrc
+          echo "export LIBCLANG_PATH=/usr/lib/llvm-14/lib" >> ~/.bashrc
+          rm -rf narwhal
+          echo "cloning repo"
+          git clone https://github.com/soxziw/narwhal.git -b bullshark
+          cd narwhal
+          pwd
+          git branch
+          cd benchmark
+          python3 --version
+          cat requirements.txt
+          pip3 install -r requirements.txt --verbose
+          echo 'finished setup'
+        dest: ~/setup.sh
+        mode: '0755'
 
-    # - name: Run setup script
-    #   shell: bash setup.sh
-    #   args:
-    #     executable: /bin/bash
+    - name: Run setup script
+      shell: bash setup.sh
+      args:
+        executable: /bin/bash
 
     - name: Create distributedTest script
       copy:
