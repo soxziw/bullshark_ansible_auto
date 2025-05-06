@@ -1,0 +1,79 @@
+- hosts: nodes
+  vars:
+    benchmark_running_time: 60
+  tasks:
+
+    - name: Create distributedTest script for no fault
+      copy:
+        content: |
+          #!/bin/bash
+          tmux kill-server
+          source $HOME/.cargo/env
+          export LIBCLANG_PATH=/usr/lib/llvm-14/lib
+          cd ~/narwhal/target/release
+          tmux new -d -s primary  "./node -vvv run --keys ~/TumTestbedConfiguration/node.json --committee ~/TumTestbedConfiguration/committee.json --store ./db-0 --parameters ~/TumTestbedConfiguration/parameters.json primary |& tee primary.log"
+          
+          tmux new -d -s client "./benchmark_client {{ ansible_host }}:54003 --size 512 --rate {{ transaction_rate }} --nodes {{ hostvars['node0']['ansible_host'] }}:54003 {{ hostvars['node1']['ansible_host'] }}:54003 {{ hostvars['node2']['ansible_host'] }}:54003 {{ hostvars['node3']['ansible_host'] }}:54003 {{ hostvars['node4']['ansible_host'] }}:54003 {{ hostvars['node5']['ansible_host'] }}:54003 {{ hostvars['node6']['ansible_host'] }}:54003 {{ hostvars['node7']['ansible_host'] }}:54003 {{ hostvars['node8']['ansible_host'] }}:54003 {{ hostvars['node9']['ansible_host'] }}:54003 2>&1 | tee client.log"
+          
+          tmux new -d -s worker "./node -vvv run --keys ~/TumTestbedConfiguration/node.json --committee ~/TumTestbedConfiguration/committee.json --store ./db-0-0 --parameters ~/TumTestbedConfiguration/parameters.json worker --id 0 2>&1 | tee worker.log"
+          tmux ls
+          sleep {{ benchmark_running_time }}
+          tmux kill-server
+        dest: ~/distributedTest.sh
+        mode: '0755'
+      when: fault_size is not defined or fault_size == ''
+
+    - name: Create distributedTest script for f1 fault
+      copy:
+        content: |
+          #!/bin/bash
+          tmux kill-server
+          source $HOME/.cargo/env
+          export LIBCLANG_PATH=/usr/lib/llvm-14/lib
+          cd ~/narwhal/target/release
+          tmux new -d -s primary  "./node -vvv run --keys ~/TumTestbedConfiguration/node.json --committee ~/TumTestbedConfiguration/committee.json --store ./db-0 --parameters ~/TumTestbedConfiguration/parameters.json primary |& tee primary.log"
+          
+          tmux new -d -s client "./benchmark_client {{ ansible_host }}:54003 --size 512 --rate {{ transaction_rate }} --nodes {{ hostvars['node0']['ansible_host'] }}:54003 {{ hostvars['node1']['ansible_host'] }}:54003 {{ hostvars['node2']['ansible_host'] }}:54003 {{ hostvars['node3']['ansible_host'] }}:54003 {{ hostvars['node4']['ansible_host'] }}:54003 {{ hostvars['node5']['ansible_host'] }}:54003 {{ hostvars['node6']['ansible_host'] }}:54003 {{ hostvars['node7']['ansible_host'] }}:54003 {{ hostvars['node8']['ansible_host'] }}:54003 2>&1 | tee client.log"
+          
+          tmux new -d -s worker "./node -vvv run --keys ~/TumTestbedConfiguration/node.json --committee ~/TumTestbedConfiguration/committee.json --store ./db-0-0 --parameters ~/TumTestbedConfiguration/parameters.json worker --id 0 2>&1 | tee worker.log"
+          tmux ls
+          sleep {{ benchmark_running_time }}
+          tmux kill-server
+        dest: ~/distributedTest.sh
+        mode: '0755'
+      when: fault_size == 'f1'
+
+    - name: Create distributedTest script for f3 fault
+      copy:
+        content: |
+          #!/bin/bash
+          tmux kill-server
+          source $HOME/.cargo/env
+          export LIBCLANG_PATH=/usr/lib/llvm-14/lib
+          cd ~/narwhal/target/release
+          tmux new -d -s primary  "./node -vvv run --keys ~/TumTestbedConfiguration/node.json --committee ~/TumTestbedConfiguration/committee.json --store ./db-0 --parameters ~/TumTestbedConfiguration/parameters.json primary |& tee primary.log"
+          
+          tmux new -d -s client "./benchmark_client {{ ansible_host }}:54003 --size 512 --rate {{ transaction_rate }} --nodes {{ hostvars['node0']['ansible_host'] }}:54003 {{ hostvars['node1']['ansible_host'] }}:54003 {{ hostvars['node2']['ansible_host'] }}:54003 {{ hostvars['node3']['ansible_host'] }}:54003 {{ hostvars['node4']['ansible_host'] }}:54003 {{ hostvars['node5']['ansible_host'] }}:54003 {{ hostvars['node6']['ansible_host'] }}:54003 2>&1 | tee client.log"
+          
+          tmux new -d -s worker "./node -vvv run --keys ~/TumTestbedConfiguration/node.json --committee ~/TumTestbedConfiguration/committee.json --store ./db-0-0 --parameters ~/TumTestbedConfiguration/parameters.json worker --id 0 2>&1 | tee worker.log"
+          tmux ls
+          sleep {{ benchmark_running_time }}
+          tmux kill-server
+        dest: ~/distributedTest.sh
+        mode: '0755'
+      when: fault_size == 'f3'
+
+    - name: Run distributed test
+      shell: bash distributedTest.sh
+      args:
+        executable: /bin/bash
+
+    - name: Fetch log files to local with node-specific names
+      fetch:
+        src: "~/narwhal/target/release/{{ item.src }}"
+        dest: "./logs/{{ item.dest }}-{{ inventory_hostname.split('node')[1] }}{{ item.suffix }}.log"
+        flat: yes
+      loop:
+        - { src: "primary.log", dest: "primary", suffix: "" }
+        - { src: "client.log", dest: "client", suffix: "-0" }
+        - { src: "worker.log", dest: "worker", suffix: "-0" }

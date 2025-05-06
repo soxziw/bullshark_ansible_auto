@@ -1,11 +1,18 @@
 [nodes]
-node0 ansible_host="{{ node0_host }}" ansible_user="{{ user }}" node_name="VzE3Jou9SI0uqI6ikwbUxSoptc6ULrdpPP/qksFwmQw=" node_secret="8S2EISc0r/Vd5MIKGPfgRT68Sz1LPUXBX6uvr1UPdVNXMTcmi71IjS6ojqKTBtTFKim1zpQut2k8/+qSwXCZDA=="
-node1 ansible_host="{{ node1_host }}" ansible_user="{{ user }}" node_name="hrXXboUzz4VyMcWiG5UBTsmRFfW3G/bh06HJW41BOZc=" node_secret="OspXOh/pkyeAvXREKwEHCD/sBkLdlkVWMYo9eYgCDOyGtdduhTPPhXIxxaIblQFOyZEV9bcb9uHToclbjUE5lw=="
-node2 ansible_host="{{ node2_host }}" ansible_user="{{ user }}" node_name="SFrLus5cHmySck6Afv+4DRH6KgumTbd0S3/k731YQjA=" node_secret="zRtN+xjdh5x1njURtIQlJdmROtSQHAVv8FJ8hT3yudZIWsu6zlwebJJyToB+/7gNEfoqC6ZNt3RLf+TvfVhCMA=="
-node3 ansible_host="{{ node3_host }}" ansible_user="{{ user }}" node_name="54+I6MeclGe1q1YsAcio00xFNr6wJCm12EHEzdMKEVA=" node_secret="lNcW5BfKc+1jLMwHYigqzL8DG/qwG3MEDq+PvDY/+8nnj4jox5yUZ7WrViwByKjTTEU2vrAkKbXYQcTN0woRUA=="
+node0 ansible_host="{{ node0_host }}" ansible_user="{{ user }}" node_name="Fg5f5ZFeExlkBmejM7OzZ+sRjvw2aawyIUa090zvNFQ=" node_secret="pcjSroCiMYD/B/SOQxowbWSbcmV19UskTmcwj+Yg1ZUWDl/lkV4TGWQGZ6Mzs7Nn6xGO/DZprDIhRrT3TO80VA=="
+node1 ansible_host="{{ node1_host }}" ansible_user="{{ user }}" node_name="KPnfm9JcjWtTs90TlU0CFNi7DSX7CeKaYUMWwwzB5U4=" node_secret="EkOqOOaiWUIonGTqiDE+pwdriNouqhn99YfaMGYE3jMo+d+b0lyNa1Oz3ROVTQIU2LsNJfsJ4pphQxbDDMHlTg=="
+node2 ansible_host="{{ node2_host }}" ansible_user="{{ user }}" node_name="S8lLoalkz1oloH0yza8zoGnPbh8hCHyWtuJZqqmfMz8=" node_secret="sp2B2CiXvDAJ5A2RfXd1fUITFyh9U0TDj7S0pxxHPw5LyUuhqWTPWiWgfTLNrzOgac9uHyEIfJa24lmqqZ8zPw=="
+node3 ansible_host="{{ node3_host }}" ansible_user="{{ user }}" node_name="UcuYOFzsBm9NnDYYwmd3XO/iwLgAJGcG7yawUpAbHIE=" node_secret="1PyuMrm/VHrivmZGcpPrJHHrYYTMoAJ5Ahe/RZu6XB5Ry5g4XOwGb02cNhjCZ3dc7+LAuAAkZwbvJrBSkBscgQ=="
+node4 ansible_host="{{ node4_host }}" ansible_user="{{ user }}" node_name="YHmSLd2ZJ6oyEsrMF1Bi72RP0tG44ZAQaBMIJTrq05I=" node_secret="l1zf5b7rYJUcJqTQnX1Mbx3u0Fs5Ns0bbpXVTS6w/oVgeZIt3ZknqjISyswXUGLvZE/S0bjhkBBoEwglOurTkg=="
+node5 ansible_host="{{ node5_host }}" ansible_user="{{ user }}" node_name="ZzVbxPI9cnLmeBFgbyhwoXtz+lK9KDjJhVYQILNs1ng=" node_secret="9GPNVm51VXz2vv2pdYapSj87kDPjLJ62gsm967XtmahnNVvE8j1ycuZ4EWBvKHChe3P6Ur0oOMmFVhAgs2zWeA=="
+node6 ansible_host="{{ node6_host }}" ansible_user="{{ user }}" node_name="ec1GemJ0BmB0deOcnr/VGIDVIn6V5dH2kfU31983RYA=" node_secret="sedXmQ/oAUZkena3y5NIKVVx1t/bMItxVjeMxbYtIKt5zUZ6YnQGYHR145yev9UYgNUifpXl0faR9TfX3zdFgA=="
+node7 ansible_host="{{ node7_host }}" ansible_user="{{ user }}" node_name="jzZoVH+kFmG8nv26WRqhx32fo9x+hEulqGTiGM0U69Y=" node_secret="wbVGbqr4fWyV6tzvFh17IF1ueKC9WTMcvBx9OS4jQcmPNmhUf6QWYbye/bpZGqHHfZ+j3H6ES6WoZOIYzRTr1g=="
+node8 ansible_host="{{ node8_host }}" ansible_user="{{ user }}" node_name="oIFRG8lyHsdy8UEI9r8KEoS3t5BZWIPli3gWu0x8iFQ=" node_secret="16c1oqYJs/QAinQLpdLDzO1gjbd4RSCr7efruvwzPlOggVEbyXIex3LxQQj2vwoShLe3kFlYg+WLeBa7THyIVA=="
+node9 ansible_host="{{ node9_host }}" ansible_user="{{ user }}" node_name="5lFVLc+ns+QWXRbZbw5oi8CsKLWkM4/XMRY2N43L6vE=" node_secret="zPLilpKGtyowCdUiJOuFfu1hMCkcKEONK9VW8thTAdrmUVUtz6ez5BZdFtlvDmiLwKwotaQzj9cxFjY3jcvq8Q=="
 
 [all:vars]
 ansible_user=root
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
-benchmark_running_time=10
+transaction_rate={{ tx_rate }}
+fault_size={{ fault_size }}
